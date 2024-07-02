@@ -1,0 +1,5 @@
+const fs= require('fs')
+const path=require('path')
+//let fscont=fs.readFileSync('F:/NodeJS-830/Basics/fsex3/emp/bangalore/data.txt','utf-8')
+let fscont=fs.readFileSync(path.join(__dirname,"emp","bangalore","data.txt"),'utf-8')
+console.log(fscont)
