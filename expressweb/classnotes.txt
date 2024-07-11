@@ -1,0 +1,12 @@
+cmd>npm init -y
+cmd>npm install express dotenv chalk morgan
+cmd>npm install -g nodemon 
+
+update package.json
+add one property for enable es6 features
+type:"module"
+
+add npm start commands in script section.
+start:"nodemon app.js"
+
+create app.js file.
