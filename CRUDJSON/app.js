@@ -6,7 +6,11 @@ import empRouter from './routing/empRouter.js'
 //create express app 
 let app = express();
 
-app.use(morgan('tiny'))
+//to read form data/post man data - enable express json
+app.use(express.json());
+
+app.use(morgan('dev'))
+
 dotenv.config({path:"./config/dev.config"})
 
 let port = process.env.PORT 
