@@ -8,6 +8,8 @@ let app = express();
 
 //to read form data/post man data - enable express json
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+
 
 app.use(morgan('dev'))
 
