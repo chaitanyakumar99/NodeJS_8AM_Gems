@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 let emp_Schema=new mongoose.Schema({
-    eid:Number,
+    eid:{type:Number,require:true},
     ename:String,
     esal:Number
 })

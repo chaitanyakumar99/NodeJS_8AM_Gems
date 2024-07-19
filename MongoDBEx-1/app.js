@@ -6,6 +6,11 @@ import empRouter from './routing/empRouter.js'
 //create express app
 let app = express()
 
+
+//how to read form data
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+
 app.use(morgan('dev'))
 
 app.use("/emp",empRouter);
