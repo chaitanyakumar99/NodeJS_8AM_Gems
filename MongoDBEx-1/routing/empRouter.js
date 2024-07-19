@@ -1,5 +1,5 @@
 import express from "express";
-import Employee from '../models/employee.js'
+import EmployeeModel from '../models/employee.js'
 let router=express.Router();
 
 //URL:localhost:8080/emp/
@@ -11,9 +11,18 @@ router.get("/",(req,resp)=>{
 
 //URL:localhost:8080/emp/read
 //GET:GET
-router.get("/read",  (req,resp)=>{
-            let employees=  Employee.find();
-            resp.status(200).json(employees)
+router.get("/read",  async(req,resp)=>{
+    try{
+        let employees= await EmployeeModel.find();
+        return resp.status(200).json(employees);
+    }
+    catch(err){
+        return resp.status(401).json({"msg":err.message})
+    }
+   
 })
-
+/*
+    Usage: create new employee
+    
+*/
 export default router;
