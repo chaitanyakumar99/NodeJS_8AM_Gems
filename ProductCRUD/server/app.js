@@ -3,10 +3,13 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 import chalk from 'chalk'
 import mongoose from 'mongoose'
+import cors from 'cors'
 import productRouter from './routes/productRouter.js'
 let app = express()
 
+app.use(cors())
 app.use(morgan('dev'))
+
 dotenv.config({path:'./config/dev.env'})
 let port = process.env.PORT 
 let host=process.env.HOST_NAME
