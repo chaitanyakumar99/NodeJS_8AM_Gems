@@ -18,7 +18,7 @@ const ProductAdmin = () => {
  }
 
  let deleteProduct = (p_Id)=>{
-  let url = `http://127.0.0.1:5000/api/products/${p_Id}`
+  let url = `http://127.0.0.1:8080/product/delete/${p_Id}`
   Axios.delete(url)
   .then((resp)=>{
       getProducts()
