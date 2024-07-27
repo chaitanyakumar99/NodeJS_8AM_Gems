@@ -24,9 +24,34 @@ router.get("/",(req,resp)=>{
         return resp.status(401).json({"msg":err.message})
     }
  });
+
+
 /*
-router.get();
-router.post();
+ Usage: Create new Product
+ URL  : http://127.0.0.1:8080/product/create
+ Method:POST
+ Req Fields: name,image,price,qty,info
+*/
+router.post("/create",async(req,resp)=>{
+    try{
+        let prodData=req.body
+       
+        let product=await Product.findOne({name:prodData.name})
+       
+       
+        if(product){
+            return resp.status(401).json({"msg":"Produt Already Exits"})
+        }
+        product=new Product(prodData)
+        console.log(product)
+        await product.save();
+        resp.status(201).json({"msg":"product created sucessfully"})
+    }
+    catch(err){
+        return resp.status(401).json({"msg":err.message})
+    }
+});
+/*
 router.put();
 router.delete(); */
 

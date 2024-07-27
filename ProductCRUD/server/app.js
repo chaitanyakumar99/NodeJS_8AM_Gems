@@ -7,8 +7,12 @@ import cors from 'cors'
 import productRouter from './routes/productRouter.js'
 let app = express()
 
+
+
 app.use(cors())
 app.use(morgan('dev'))
+//read form data 
+app.use(express.json())
 
 dotenv.config({path:'./config/dev.env'})
 let port = process.env.PORT 
